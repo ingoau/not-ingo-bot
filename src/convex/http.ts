@@ -8,6 +8,7 @@ http.route({
   method: "POST",
   handler: httpAction(async (ctx, request) => {
     const body = await request.json();
+    console.log("Request body", body);
     if (body.type === "url_verification") {
       console.log("Received Slack event:", body);
       return new Response(body.challenge);
