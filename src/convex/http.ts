@@ -1,6 +1,7 @@
 import { httpRouter } from "convex/server";
 import { httpAction } from "./_generated/server";
 import type { LinkSharedEvent } from "@slack/web-api";
+import { internal } from "./_generated/api";
 
 const http = httpRouter();
 
@@ -18,6 +19,9 @@ http.route({
       if (body.event.type === "link_shared") {
         const event = body.event as LinkSharedEvent;
         console.log("Received link shared event:", event);
+        await ctx.runAction(internal.unfurl.unfurl, {
+          unfurlId: event.unfurl_id || "",
+        });
       }
     }
     return new Response("");
