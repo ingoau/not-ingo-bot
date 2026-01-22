@@ -14,7 +14,31 @@ export const unfurl = internalAction({
       unfurl_id: args.unfurlId,
       unfurls: {
         "https://dev.not.ingo.au/join": {
-          text: "e",
+          blocks: [
+            {
+              type: "header",
+              text: {
+                type: "plain_text",
+                text: "Join Ingo's Channel :ultrafastcatppuccinparrot:",
+                emoji: true,
+              },
+            },
+            {
+              type: "actions",
+              elements: [
+                {
+                  type: "button",
+                  text: {
+                    type: "plain_text",
+                    text: "Join",
+                    emoji: true,
+                  },
+                  style: "primary",
+                  action_id: "join_request",
+                },
+              ],
+            },
+          ],
         },
       },
     });
