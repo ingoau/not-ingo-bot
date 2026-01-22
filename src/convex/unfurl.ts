@@ -13,7 +13,7 @@ export const unfurl = internalAction({
       source: "conversations_history",
       unfurl_id: args.unfurlId,
       unfurls: {
-        "https://dev.not.ingo.au/test": {
+        "https://dev.not.ingo.au/join": {
           text: "e",
         },
       },

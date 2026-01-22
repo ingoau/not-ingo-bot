@@ -19,9 +19,15 @@ http.route({
       if (body.event.type === "link_shared") {
         const event = body.event as LinkSharedEvent;
         console.log("Received link shared event:", event);
-        await ctx.runAction(internal.unfurl.unfurl, {
-          unfurlId: event.unfurl_id || "",
-        });
+        if (
+          event.links.filter((link) =>
+            link.url.startsWith("https://dev.not.ingo.au/join"),
+          ).length > 0
+        ) {
+          await ctx.runAction(internal.unfurl.unfurl, {
+            unfurlId: event.unfurl_id || "",
+          });
+        }
       }
     }
     return new Response("");
