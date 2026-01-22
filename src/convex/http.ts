@@ -5,9 +5,10 @@ const http = httpRouter();
 
 http.route({
   path: "/slack/event",
-  method: "GET",
+  method: "POST",
   handler: httpAction(async (ctx, request) => {
-    return new Response(`Hello from ${request.url}`);
+    console.log("Received Slack event:", await request.json());
+    return new Response("");
   }),
 });
 export default http;
