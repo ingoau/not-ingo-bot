@@ -7,7 +7,11 @@ http.route({
   path: "/slack/event",
   method: "POST",
   handler: httpAction(async (ctx, request) => {
-    console.log("Received Slack event:", await request.json());
+    const body = await request.json();
+    if (body.type === "url_verification") {
+      console.log("Received Slack event:", body);
+      return new Response(body.challenge);
+    }
     return new Response("");
   }),
 });
