@@ -9,6 +9,7 @@
  */
 
 import type * as http from "../http.js";
+import type * as joinmodal from "../joinmodal.js";
 import type * as slackclient from "../slackclient.js";
 import type * as unfurl from "../unfurl.js";
 
@@ -20,6 +21,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   http: typeof http;
+  joinmodal: typeof joinmodal;
   slackclient: typeof slackclient;
   unfurl: typeof unfurl;
 }>;

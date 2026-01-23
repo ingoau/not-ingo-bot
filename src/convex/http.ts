@@ -15,7 +15,9 @@ http.route({
     );
     console.log("Request body", payload);
     if ((payload.actions[0].action_id = "join_request")) {
-      console.log(payload.trigger_id);
+      await ctx.runAction(internal.joinmodal.joinmodal, {
+        trigger_id: payload.trigger_id || "",
+      });
     }
     return new Response("");
   }),
