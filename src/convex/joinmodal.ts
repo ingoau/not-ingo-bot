@@ -9,7 +9,7 @@ export const joinmodal = internalAction({
     trigger_id: v.string(),
   },
   handler: async (ctx, { trigger_id }) => {
-    slackclient.views.open({
+    await slackclient.views.open({
       trigger_id,
       view: {
         type: "modal",
