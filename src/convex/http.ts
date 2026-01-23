@@ -10,10 +10,13 @@ http.route({
   method: "POST",
   handler: httpAction(async (ctx, request) => {
     const body = await request.text();
-    console.log(
-      "Request body",
-      JSON.parse(new URLSearchParams(body).get("payload") || "{}"),
+    const payload = JSON.parse(
+      new URLSearchParams(body).get("payload") || "{}",
     );
+    console.log("Request body", payload);
+    if ((payload.actions[0].action_id = "join_request")) {
+      console.log(payload.trigger_id);
+    }
     return new Response("");
   }),
 });
