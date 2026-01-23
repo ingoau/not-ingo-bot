@@ -13,27 +13,25 @@ export const joinmodal = internalAction({
       trigger_id,
       view: {
         type: "modal",
-        callback_id: "modal-identifier",
         title: {
           type: "plain_text",
-          text: "Just a modal",
+          text: "Join Ingo's Channel",
+          emoji: true,
         },
         blocks: [
           {
-            type: "section",
-            block_id: "section-identifier",
-            text: {
-              type: "mrkdwn",
-              text: "*Welcome* to ~my~ Block Kit _modal_!",
-            },
-            accessory: {
-              type: "button",
-              text: {
-                type: "plain_text",
-                text: "Just a button",
+            type: "rich_text",
+            elements: [
+              {
+                type: "rich_text_section",
+                elements: [
+                  {
+                    type: "text",
+                    text: "Your request has been sent! You may be added very soon if the automated screening thing works. If not I will review it manually.",
+                  },
+                ],
               },
-              action_id: "button-identifier",
-            },
+            ],
           },
         ],
       },
