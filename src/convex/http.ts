@@ -6,6 +6,19 @@ import { internal } from "./_generated/api";
 const http = httpRouter();
 
 http.route({
+  path: "/slack/interactivity",
+  method: "POST",
+  handler: httpAction(async (ctx, request) => {
+    const body = await request.text();
+    console.log(
+      "Request body",
+      JSON.parse(new URLSearchParams(body).get("payload") || "{}"),
+    );
+    return new Response("");
+  }),
+});
+
+http.route({
   path: "/slack/event",
   method: "POST",
   handler: httpAction(async (ctx, request) => {
