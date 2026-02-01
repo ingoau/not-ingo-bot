@@ -15,11 +15,12 @@ export const unfurljoinlink = internalAction({
     unfurlId: v.string(),
   },
   handler: async (ctx, args) => {
+    const joinUrl = process.env.SITE_URL + "/join";
     await client.chat.unfurl({
       source: "conversations_history",
       unfurl_id: args.unfurlId,
       unfurls: {
-        "https://dev.not.ingo.au/join": {
+        [joinUrl]: {
           blocks: [
             {
               type: "header",

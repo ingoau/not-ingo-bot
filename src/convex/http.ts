@@ -39,7 +39,7 @@ http.route({
         console.log("Received link shared event:", event);
         if (
           event.links.filter((link) =>
-            link.url.startsWith("https://dev.not.ingo.au/join"),
+            link.url.startsWith(process.env.SITE_URL + "/join"),
           ).length > 0
         ) {
           await ctx.runAction(internal.slack.unfurljoinlink, {
