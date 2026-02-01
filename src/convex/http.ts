@@ -15,7 +15,7 @@ http.route({
     );
     console.log("Request body", payload);
     if ((payload.actions[0].action_id = "join_request")) {
-      await ctx.runAction(internal.joinmodal.joinmodal, {
+      await ctx.runAction(internal.slack.joinmodal, {
         trigger_id: payload.trigger_id || "",
       });
     }
@@ -42,7 +42,7 @@ http.route({
             link.url.startsWith("https://dev.not.ingo.au/join"),
           ).length > 0
         ) {
-          await ctx.runAction(internal.unfurl.unfurl, {
+          await ctx.runAction(internal.slack.unfurl, {
             unfurlId: event.unfurl_id || "",
           });
         }
