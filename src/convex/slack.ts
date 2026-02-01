@@ -10,7 +10,7 @@ const token = process.env.SLACK_BOT_TOKEN;
 // Initialize
 const client = new WebClient(token);
 
-export const unfurl = internalAction({
+export const unfurljoinlink = internalAction({
   args: {
     unfurlId: v.string(),
   },

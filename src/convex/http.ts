@@ -42,7 +42,7 @@ http.route({
             link.url.startsWith("https://dev.not.ingo.au/join"),
           ).length > 0
         ) {
-          await ctx.runAction(internal.slack.unfurl, {
+          await ctx.runAction(internal.slack.unfurljoinlink, {
             unfurlId: event.unfurl_id || "",
           });
         }
