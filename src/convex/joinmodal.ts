@@ -27,7 +27,7 @@ export const joinmodal = internalAction({
                 elements: [
                   {
                     type: "text",
-                    text: "Your request has been sent! You may be added very soon if the automated screening thing works. If not I will review it manually.",
+                    text: "Your request has been sent! (not it hasn't) You may be added very soon if the automated screening thing works (it won't). If not I will review it manually (please DM me if you want to join my channel).",
                   },
                 ],
               },
