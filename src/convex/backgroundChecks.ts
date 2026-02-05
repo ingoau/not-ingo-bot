@@ -46,6 +46,7 @@ export const joinDate = internalAction({
   args: {
     joinDate: v.string(),
   },
+  returns: returnType,
   handler: async (ctx, { joinDate }) => {
     const date = new Date(joinDate);
     // check if date is more than 6 months ago
