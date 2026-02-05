@@ -41,3 +41,25 @@ export const idv = internalAction({
     }
   },
 });
+
+export const joinDate = internalAction({
+  args: {
+    joinDate: v.string(),
+  },
+  handler: async (ctx, { joinDate }) => {
+    const date = new Date(joinDate);
+    // check if date is more than 6 months ago
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    if (date < sixMonthsAgo) {
+      return {
+        pass: true,
+      };
+    } else {
+      return {
+        pass: false,
+        message: "Join date is less than 6 months ago",
+      };
+    }
+  },
+});
