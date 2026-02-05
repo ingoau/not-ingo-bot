@@ -86,3 +86,14 @@ export const joinmodal = internalAction({
     });
   },
 });
+
+export const getProfile = internalAction({
+  args: {
+    slackId: v.string(),
+  },
+  handler: async (ctx, { slackId }) => {
+    return await client.users.profile.get({
+      user: slackId,
+    });
+  },
+});
