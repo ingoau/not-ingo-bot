@@ -15,12 +15,12 @@ export const idv = internalAction({
 
     const idvResponse = (await idvRequest.json()) as {
       result:
-        | "needs_submission"
-        | "pending"
-        | "verified_eligible"
-        | "verified_but_over_18"
-        | "rejected"
-        | "not_found";
+        | "needs_submission" // User hasn't started verification
+        | "pending" // Verification is being reviewed
+        | "verified_eligible" // Verified and eligible for YSWS (under 18)
+        | "verified_but_over_18" // Verified but over 18
+        | "rejected" // Verification was rejected
+        | "not_found"; // No user found with the provided identifier
     };
     return idvResponse;
   },
