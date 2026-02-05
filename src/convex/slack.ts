@@ -8,7 +8,7 @@ import { WebClient } from "@slack/web-api";
 const token = process.env.SLACK_BOT_TOKEN;
 
 // Initialize
-const client = new WebClient(token);
+export const client = new WebClient(token);
 
 export const unfurljoinlink = internalAction({
   args: {
