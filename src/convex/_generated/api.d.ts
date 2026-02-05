@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as backgroundChecks from "../backgroundChecks.js";
 import type * as http from "../http.js";
 import type * as slack from "../slack.js";
 
@@ -18,6 +19,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  backgroundChecks: typeof backgroundChecks;
   http: typeof http;
   slack: typeof slack;
 }>;
