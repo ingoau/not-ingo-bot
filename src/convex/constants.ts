@@ -3,3 +3,7 @@ export const CHANNELS = {
   t2: process.env.T2_ID!,
   t3: process.env.T3_ID!,
 };
+
+export const GROUPS = {
+  ping: process.env.PING_GROUP_ID!,
+};
