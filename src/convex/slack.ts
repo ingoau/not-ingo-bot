@@ -97,3 +97,15 @@ export const getProfile = internalAction({
     });
   },
 });
+
+export const listMembers = internalAction({
+  args: {
+    channelId: v.string(),
+  },
+  handler: async (ctx, { channelId }) => {
+    await client.conversations.members({
+      channel: channelId,
+      limit: 999,
+    });
+  },
+});
