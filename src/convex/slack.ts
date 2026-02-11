@@ -103,7 +103,7 @@ export const listMembers = internalAction({
     channelId: v.string(),
   },
   handler: async (ctx, { channelId }) => {
-    await client.conversations.members({
+    return await client.conversations.members({
       channel: channelId,
       limit: 999,
     });
