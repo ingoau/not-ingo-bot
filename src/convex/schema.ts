@@ -9,6 +9,8 @@ export default defineSchema({
     isInT1: v.boolean(),
     isInT2: v.boolean(),
     isInT3: v.boolean(),
+    isInPingGroup: v.optional(v.boolean()),
     notes: v.optional(v.string()),
+    isBot: v.optional(v.boolean()),
   }).index("by_slack_id", ["slackId"]),
 });
