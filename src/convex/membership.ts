@@ -31,5 +31,26 @@ export const storeSyncData = internalMutation({
   },
   handler: async (ctx, { t1members, t2members, t3members }) => {
     const allMembers = [...new Set([...t1members, ...t2members, ...t3members])];
+    allMembers.forEach(async (member) => {
+      const existing = await ctx.db
+        .query("users")
+        .withIndex("by_slack_id", (q) => q.eq("slackId", member))
+        .first();
+      const tiers = {
+        isInT1: t1members.includes(member),
+        isInT2: t2members.includes(member),
+        isInT3: t3members.includes(member),
+      };
+      if (existing) {
+        await ctx.db.patch("users", existing._id, {
+          ...tiers,
+        });
+      } else {
+        await ctx.db.insert("users", {
+          slackId: member,
+          ...tiers,
+        });
+      }
+    });
   },
 });
