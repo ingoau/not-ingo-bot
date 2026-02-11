@@ -111,3 +111,16 @@ export const listMembers = internalAction({
     ).members;
   },
 });
+
+export const listGroupMembers = internalAction({
+  args: {
+    groupId: v.string(),
+  },
+  handler: async (ctx, { groupId }) => {
+    return (
+      await client.usergroups.users.list({
+        usergroup: groupId,
+      })
+    ).users;
+  },
+});
