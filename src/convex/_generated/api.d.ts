@@ -13,6 +13,7 @@ import type * as constants from "../constants.js";
 import type * as http from "../http.js";
 import type * as membership from "../membership.js";
 import type * as slack from "../slack.js";
+import type * as users from "../users.js";
 
 import type {
   ApiFromModules,
@@ -26,6 +27,7 @@ declare const fullApi: ApiFromModules<{
   http: typeof http;
   membership: typeof membership;
   slack: typeof slack;
+  users: typeof users;
 }>;
 
 /**
