@@ -10,5 +10,5 @@ export default defineSchema({
     isInT2: v.boolean(),
     isInT3: v.boolean(),
     notes: v.optional(v.string()),
-  }),
+  }).index("by_slack_id", ["slackId"]),
 });
