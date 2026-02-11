@@ -9,6 +9,7 @@
  */
 
 import type * as backgroundChecks from "../backgroundChecks.js";
+import type * as constants from "../constants.js";
 import type * as http from "../http.js";
 import type * as membership from "../membership.js";
 import type * as slack from "../slack.js";
@@ -21,6 +22,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   backgroundChecks: typeof backgroundChecks;
+  constants: typeof constants;
   http: typeof http;
   membership: typeof membership;
   slack: typeof slack;
